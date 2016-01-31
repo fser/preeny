@@ -30,11 +30,7 @@ all: $(ALL_MODULES)
 
 COMMON_DEPS=logging.c
 desock.so: CFLAGS+=-lpthread
-desock_dup.so: CFLAGS+=-ldl
-desrand.so: CFLAGS+=-ldl
-deptrace.so: CFLAGS+=-ldl
-mallocwatch.so: CFLAGS+=-ldl
-patch.so: CFLAGS+=-ldl -lini_config
+patch.so: CFLAGS+=-lini_config
 
 %.so: %.c $(COMMON_DEPS)
 	$(CC) $^ -o $@ -shared -fPIC $(CFLAGS)
